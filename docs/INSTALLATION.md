@@ -1,200 +1,200 @@
-# Installation Guide
+# Guía de Instalación
 
-This document provides step-by-step instructions for setting up and deploying the SystemPlus AI Assistant on both development and production environments.
+Este documento proporciona instrucciones paso a paso para configurar y desplegar el Asistente IA de SystemPlus tanto en entornos de desarrollo como de producción.
 
-## Table of Contents
+## Tabla de Contenidos
 
-- [Prerequisites](#prerequisites)
-- [Development Setup](#development-setup)
-- [Production Deployment](#production-deployment)
-- [Server Configuration](#server-configuration)
-- [Updating Context Data](#updating-context-data)
-- [Troubleshooting](#troubleshooting)
+- [Prerrequisitos](#prerrequisitos)
+- [Configuración de Desarrollo](#configuración-de-desarrollo)
+- [Despliegue de Producción](#despliegue-de-producción)
+- [Configuración del Servidor](#configuración-del-servidor)
+- [Actualización de Datos de Contexto](#actualización-de-datos-de-contexto)
+- [Solución de Problemas](#solución-de-problemas)
 
-## Prerequisites
+## Prerrequisitos
 
-Before you begin, ensure you have the following installed:
+Antes de comenzar, asegúrate de tener lo siguiente instalado:
 
-- Node.js (v16.x or later)
-- npm (v8.x or later)
+- Node.js (v16.x o posterior)
+- npm (v8.x o posterior)
 - Git
 
-For production deployment, you'll also need:
+Para el despliegue en producción, también necesitarás:
 
-- A server running Linux (Ubuntu 20.04 LTS recommended)
+- Un servidor ejecutando Linux (Ubuntu 20.04 LTS recomendado)
 - Nginx
-- Domain name with DNS configured
-- SSL certificate (Let's Encrypt recommended)
+- Nombre de dominio con DNS configurado
+- Certificado SSL (Let's Encrypt recomendado)
 
-## Development Setup
+## Configuración de Desarrollo
 
-### 1. Clone the Repository
+### 1. Clonar el Repositorio
 
 ```bash
 git clone https://github.com/JhonHurtado/systemplus_ai_assistant.git
 cd systemplus_ai_assistant
 ```
 
-### 2. Install Dependencies
+### 2. Instalar Dependencias
 
 ```bash
 npm install
 ```
 
-### 3. Set Up Environment Variables
+### 3. Configurar Variables de Entorno
 
 ```bash
 cp .env.example .env
 ```
 
-Edit the `.env` file and fill in the required values:
+Edita el archivo `.env` y completa los valores requeridos:
 
 ```
 PORT=3000
 NODE_ENV=development
-GEMINI_API_KEY=your_gemini_api_key_here
-JWT_SECRET=your_jwt_secret
+GEMINI_API_KEY=tu_clave_api_gemini_aquí
+JWT_SECRET=tu_secreto_jwt
 JWT_EXPIRY=24h
 ALLOWED_ORIGINS=http://localhost:3000,http://localhost:8080
 RATE_LIMIT_WINDOW_MS=60000
 RATE_LIMIT_MAX_REQUESTS=30
 ```
 
-### 4. Start Development Servers
+### 4. Iniciar Servidores de Desarrollo
 
-Start both backend and frontend development servers:
+Inicia ambos servidores de desarrollo (backend y frontend):
 
 ```bash
 npm run dev
 ```
 
-Or run them separately:
+O ejecútalos por separado:
 
 ```bash
-# Backend only
+# Solo backend
 npm run dev:backend
 
-# Widget only
+# Solo widget
 npm run dev:widget
 ```
 
-The backend server will be available at http://localhost:3000, and you can test the widget by opening the example page in your browser:
+El servidor backend estará disponible en http://localhost:3000, y puedes probar el widget abriendo la página de ejemplo en tu navegador:
 
 ```bash
-# Open example/index.html in your browser
+# Abre example/index.html en tu navegador
 ```
 
-## Production Deployment
+## Despliegue de Producción
 
-### 1. Build the Application
+### 1. Compilar la Aplicación
 
 ```bash
 npm run build
 ```
 
-This will create optimized files in the `dist` directory.
+Esto creará archivos optimizados en el directorio `dist`.
 
-### 2. Deploy Using Script (Recommended)
+### 2. Desplegar Usando Script (Recomendado)
 
-The easiest way to deploy is using the included deployment script:
+La forma más fácil de desplegar es usando el script de despliegue incluido:
 
 ```bash
 node scripts/deploy.js
 ```
 
-Follow the prompts to select the target environment (development, staging, or production).
+Sigue las indicaciones para seleccionar el entorno de destino (desarrollo, staging o producción).
 
-### 3. Manual Deployment
+### 3. Despliegue Manual
 
-Alternatively, you can deploy manually:
+Alternativamente, puedes desplegar manualmente:
 
-1. Build the application:
+1. Compilar la aplicación:
    ```bash
    npm run build
    ```
 
-2. Transfer files to server:
+2. Transferir archivos al servidor:
    ```bash
-   rsync -avz --delete ./dist/ systemplus@your-server.com:/var/www/assistant-prod/
+   rsync -avz --delete ./dist/ systemplus@tu-servidor.com:/var/www/assistant-prod/
    ```
 
-3. Set up environment variables on the server:
+3. Configurar variables de entorno en el servidor:
    ```bash
    cp .env.example /var/www/assistant-prod/.env
-   # Edit the environment file with production values
+   # Edita el archivo de entorno con valores de producción
    ```
 
-4. Start or restart the service:
+4. Iniciar o reiniciar el servicio:
    ```bash
    sudo systemctl restart systemplus-assistant
    ```
 
-## Server Configuration
+## Configuración del Servidor
 
-### Setting Up Nginx
+### Configuración de Nginx
 
-1. Copy the Nginx configuration file to your server:
+1. Copia el archivo de configuración de Nginx a tu servidor:
    ```bash
    sudo cp configs/nginx/systemplus-assistant.conf /etc/nginx/sites-available/
    ```
 
-2. Create a symbolic link to enable the site:
+2. Crea un enlace simbólico para habilitar el sitio:
    ```bash
    sudo ln -s /etc/nginx/sites-available/systemplus-assistant.conf /etc/nginx/sites-enabled/
    ```
 
-3. Test the configuration:
+3. Prueba la configuración:
    ```bash
    sudo nginx -t
    ```
 
-4. Reload Nginx:
+4. Recarga Nginx:
    ```bash
    sudo systemctl reload nginx
    ```
 
-### Setting Up SSL with Let's Encrypt
+### Configuración de SSL con Let's Encrypt
 
-1. Install Certbot:
+1. Instala Certbot:
    ```bash
    sudo apt install certbot python3-certbot-nginx
    ```
 
-2. Obtain SSL certificate:
+2. Obtén certificado SSL:
    ```bash
    sudo certbot --nginx -d asistente.systemplus.systems
    ```
 
-3. Test automatic renewal:
+3. Prueba la renovación automática:
    ```bash
    sudo certbot renew --dry-run
    ```
 
-### Setting Up systemd Service
+### Configuración del Servicio systemd
 
-1. Copy the service file:
+1. Copia el archivo de servicio:
    ```bash
    sudo cp configs/systemd/systemplus-assistant.service /etc/systemd/system/
    ```
 
-2. Enable and start the service:
+2. Habilita e inicia el servicio:
    ```bash
    sudo systemctl enable systemplus-assistant
    sudo systemctl start systemplus-assistant
    ```
 
-3. Check service status:
+3. Verifica el estado del servicio:
    ```bash
    sudo systemctl status systemplus-assistant
    ```
 
-## Updating Context Data
+## Actualización de Datos de Contexto
 
-The AI assistant's knowledge can be updated by modifying the context data:
+El conocimiento del asistente IA puede actualizarse modificando los datos de contexto:
 
-### 1. Create Updated Context File
+### 1. Crear Archivo de Contexto Actualizado
 
-Create a new JSON file with the updated context. Example structure:
+Crea un nuevo archivo JSON con el contexto actualizado. Estructura de ejemplo:
 
 ```json
 {
@@ -224,60 +224,60 @@ Create a new JSON file with the updated context. Example structure:
 }
 ```
 
-### 2. Update via API
+### 2. Actualizar vía API
 
-Use the protected API endpoint to update the context:
+Utiliza el endpoint API protegido para actualizar el contexto:
 
 ```bash
 curl -X PUT https://asistente.systemplus.systems/api/admin/context \
-  -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
+  -H "Authorization: Bearer TU_TOKEN_ADMIN" \
   -H "Content-Type: application/json" \
   -d @nuevo_contexto.json
 ```
 
-Replace `YOUR_ADMIN_TOKEN` with a valid JWT token and `nuevo_contexto.json` with the path to your new context file.
+Reemplaza `TU_TOKEN_ADMIN` con un token JWT válido y `nuevo_contexto.json` con la ruta a tu nuevo archivo de contexto.
 
-## Troubleshooting
+## Solución de Problemas
 
-### Common Issues
+### Problemas Comunes
 
-#### Widget Not Loading
+#### Widget No Carga
 
-1. Check browser console for errors
-2. Verify that the widget script is correctly included in your HTML
-3. Ensure the `apiBasePath` in the widget configuration points to the correct server
-4. Check CORS settings if the widget is loaded from a different domain
+1. Verifica la consola del navegador para errores
+2. Comprueba que el script del widget esté correctamente incluido en tu HTML
+3. Asegúrate de que `apiBasePath` en la configuración del widget apunte al servidor correcto
+4. Verifica la configuración CORS si el widget se carga desde un dominio diferente
 
-#### API Errors
+#### Errores de API
 
-1. Check server logs:
+1. Verifica los logs del servidor:
    ```bash
    sudo journalctl -u systemplus-assistant -f
    ```
-2. Verify environment variables are correctly set
-3. Ensure the Google Gemini API key is valid
-4. Check rate limiting settings if you're getting 429 errors
+2. Comprueba que las variables de entorno estén correctamente configuradas
+3. Asegúrate de que la clave API de Google Gemini sea válida
+4. Verifica la configuración de limitación de tasa si estás recibiendo errores 429
 
-#### Deployment Issues
+#### Problemas de Despliegue
 
-1. Check file permissions:
+1. Verifica los permisos de archivos:
    ```bash
    sudo chown -R systemplus:systemplus /var/www/assistant-prod
    sudo chmod -R 755 /var/www/assistant-prod
    ```
-2. Verify Node.js version on the server:
+2. Comprueba la versión de Node.js en el servidor:
    ```bash
    node -v
    ```
-3. Check Nginx logs:
+3. Revisa los logs de Nginx:
    ```bash
    sudo tail -f /var/log/nginx/systemplus-assistant-error.log
    ```
 
-### Getting Help
+### Obtener Ayuda
 
-If you encounter issues not covered in this guide, please:
+Si encuentras problemas no cubiertos en esta guía, por favor:
 
-1. Check the [GitHub Issues](https://github.com/JhonHurtado/systemplus_ai_assistant/issues) for similar problems
-2. Open a new issue with detailed information about your problem
-3. Contact the SystemPlus development team at desarrollo@systemplus.edu.co
+1. Revisa los [Issues de GitHub](https://github.com/JhonHurtado/systemplus_ai_assistant/issues) para problemas similares
+2. Abre un nuevo issue con información detallada sobre tu problema
+3. Contacta al equipo de desarrollo de SystemPlus en desarrollo@systemplus.edu.co
