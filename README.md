@@ -1,8 +1,28 @@
 # SystemPlus AI Assistant
 
-![SystemPlus Logo](https://systemplus.systems/images/svg/icon_bot.svg)
+![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JhonHurtado/systemplus_ai_assistant/ci.yml?branch=main&style=flat-square)
+![GitHub issues](https://img.shields.io/github/issues/JhonHurtado/systemplus_ai_assistant?style=flat-square)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/JhonHurtado/systemplus_ai_assistant?style=flat-square)
+![GitHub](https://img.shields.io/github/license/JhonHurtado/systemplus_ai_assistant?style=flat-square)
+![Node Version](https://img.shields.io/badge/node-%3E%3D16.0.0-brightgreen?style=flat-square)
+![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue?style=flat-square)
 
-> AI Assistant for SystemPlus educational institution using Node.js, Express, TypeScript, and Google Gemini 2.0 Flash
+<p align="center">
+  <img src="https://systemplus.systems/images/svg/icon_bot.svg" alt="SystemPlus Logo" width="120" height="120">
+</p>
+
+<p align="center">
+  <b>AI Assistant for SystemPlus educational institution using Node.js, Express, TypeScript, and Google Gemini 2.0 Flash</b>
+</p>
+
+<p align="center">
+  <a href="#overview">Overview</a> •
+  <a href="#key-features">Key Features</a> •
+  <a href="#quick-start">Quick Start</a> •
+  <a href="#integration">Integration</a> •
+  <a href="#documentation">Documentation</a> •
+  <a href="#license">License</a>
+</p>
 
 ## 📋 Overview
 
@@ -104,6 +124,8 @@ Add the widget to any website using a simple script tag:
 </script>
 ```
 
+See the [example integration page](./example/index.html) for a working demo.
+
 ## ⚙️ Configuration Options
 
 | Option | Description | Default |
@@ -120,6 +142,15 @@ Add the widget to any website using a simple script tag:
 | `suggestionsEnabled` | Show suggestions | `true` |
 | `size` | Widget size | `"medium"` (or `"small"`, `"large"`) |
 | `autoOpen` | Auto-open on page load | `false` |
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the `/docs` directory:
+
+- [Installation Guide](./docs/INSTALLATION.md) - Detailed setup and deployment instructions
+- [API Documentation](./docs/API.md) - API endpoints reference
+- [User Guide](./docs/USER_GUIDE.md) - Guide for end users
+- [Contributing Guidelines](./docs/CONTRIBUTING.md) - How to contribute to the project
 
 ## 📂 Project Structure
 
@@ -146,9 +177,11 @@ Add the widget to any website using a simple script tag:
 /data
   context.json            # Initial context example
   
-/scripts
-  build.js                # Build script
-  deploy.js               # Deployment script
+/docs                     # Documentation
+/configs                  # Configuration files for deployment
+/scripts                  # Build and deployment scripts
+/example                  # Example integration
+/.github                  # GitHub workflows and templates
   
 tsconfig.json             # TypeScript configuration
 webpack.config.js         # Webpack configuration
@@ -167,6 +200,8 @@ curl -X PUT https://asistente.systemplus.systems/api/admin/context \
   -d @new_context.json
 ```
 
+See the [API Documentation](./docs/API.md) for more details.
+
 ## 🔒 Security Features
 
 - **CORS Protection**: Configured for specific domains
@@ -175,12 +210,22 @@ curl -X PUT https://asistente.systemplus.systems/api/admin/context \
 - **Rate Limiting**: Prevents abuse by limiting requests per IP
 - **Input Sanitization**: All user inputs are validated and sanitized
 
+## 🤝 Contributing
+
+Contributions are welcome! Please see our [Contributing Guidelines](./docs/CONTRIBUTING.md) for more details.
+
 ## 📄 License
 
-This project is proprietary software owned by SystemPlus.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 👥 Support
 
 For questions or assistance, please contact:
 - Email: info@systemplus.edu.co
 - Website: [SystemPlus](https://systemplus.systems)
+
+---
+
+<p align="center">
+  Made with ❤️ by <a href="https://systemplus.systems">SystemPlus</a>
+</p>
