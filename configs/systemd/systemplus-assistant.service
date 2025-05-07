@@ -1,0 +1,22 @@
+[Unit]
+Description=SystemPlus AI Assistant
+After=network.target
+
+[Service]
+Type=simple
+User=systemplus
+WorkingDirectory=/var/www/assistant-prod
+ExecStart=/usr/bin/node dist/backend/server.js
+Restart=on-failure
+RestartSec=10
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=systemplus-assistant
+Environment=NODE_ENV=production
+Environment=PORT=3000
+
+# Read environment variables from file
+EnvironmentFile=/var/www/assistant-prod/.env
+
+[Install]
+WantedBy=multi-user.target
