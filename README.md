@@ -1,4 +1,4 @@
-# SystemPlus AI Assistant
+# Asistente IA de SystemPlus
 
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/JhonHurtado/systemplus_ai_assistant/ci.yml?branch=main&style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/JhonHurtado/systemplus_ai_assistant?style=flat-square)
@@ -8,99 +8,99 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.9-blue?style=flat-square)
 
 <p align="center">
-  <img src="https://systemplus.systems/images/svg/icon_bot.svg" alt="SystemPlus Logo" width="120" height="120">
+  <img src="https://systemplus.systems/images/svg/icon_bot.svg" alt="Logo de SystemPlus" width="120" height="120">
 </p>
 
 <p align="center">
-  <b>AI Assistant for SystemPlus educational institution using Node.js, Express, TypeScript, and Google Gemini 2.0 Flash</b>
+  <b>Asistente de IA para la institución educativa SystemPlus desarrollado con Node.js, Express, TypeScript y Google Gemini 2.0 Flash</b>
 </p>
 
 <p align="center">
-  <a href="#overview">Overview</a> •
-  <a href="#key-features">Key Features</a> •
-  <a href="#quick-start">Quick Start</a> •
-  <a href="#integration">Integration</a> •
-  <a href="#documentation">Documentation</a> •
-  <a href="#license">License</a>
+  <a href="#visión-general">Visión General</a> •
+  <a href="#características-principales">Características Principales</a> •
+  <a href="#inicio-rápido">Inicio Rápido</a> •
+  <a href="#integración">Integración</a> •
+  <a href="#documentación">Documentación</a> •
+  <a href="#licencia">Licencia</a>
 </p>
 
-## 📋 Overview
+## 📋 Visión General
 
-SystemPlus AI Assistant is a professional, embeddable chat widget for the SystemPlus educational institution. The assistant provides concise, accurate information to students, parents, and visitors based on a customizable knowledge context.
+El Asistente IA de SystemPlus es un widget de chat profesional e integrable para la institución educativa SystemPlus. El asistente proporciona información concisa y precisa a estudiantes, padres y visitantes basada en un contexto de conocimiento personalizable.
 
-Built with modern web technologies, the widget offers a seamless integration experience for any website with extensive customization options while maintaining enterprise-grade security.
+Construido con tecnologías web modernas, el widget ofrece una experiencia de integración perfecta para cualquier sitio web con amplias opciones de personalización, manteniendo la seguridad a nivel empresarial.
 
-## 🌟 Key Features
+## 🌟 Características Principales
 
-- **Contextual AI Responses**: Powered by Google's Gemini 2.0 Flash model
-- **Custom Embeddable Widget**: Easy integration via a single script tag
-- **Professional UI/UX**: Shadow DOM for style isolation and smooth animations
-- **Responsive Design**: Works on any device and screen size
-- **Dynamic Context Updates**: Update the knowledge base without service restart
-- **Enhanced Security**: JWT authentication, rate limiting, and CORS protection
-- **Highly Customizable**: Multiple theming and styling options
+- **Respuestas IA Contextuales**: Impulsado por el modelo Google Gemini 2.0 Flash
+- **Widget Personalizado**: Fácil integración mediante una única etiqueta script
+- **UI/UX Profesional**: Shadow DOM para aislamiento de estilos y animaciones fluidas
+- **Diseño Responsivo**: Funciona en cualquier dispositivo y tamaño de pantalla
+- **Actualizaciones Dinámicas de Contexto**: Actualiza la base de conocimientos sin reiniciar el servicio
+- **Seguridad Mejorada**: Autenticación JWT, limitación de tasa de solicitudes y protección CORS
+- **Altamente Personalizable**: Múltiples opciones de temas y estilos
 
-## 🛠️ Technologies
+## 🛠️ Tecnologías
 
 - **Backend**: Node.js + Express + TypeScript
-- **Frontend**: TypeScript (compiled to JavaScript)
-- **AI Model**: Google Gemini 2.0 Flash
-- **Bundler**: Webpack for widget compilation
-- **Security**: Helmet, JWT, and rate limiting
+- **Frontend**: TypeScript (compilado a JavaScript)
+- **Modelo IA**: Google Gemini 2.0 Flash
+- **Bundler**: Webpack para compilación del widget
+- **Seguridad**: Helmet, JWT y limitación de tasa de solicitudes
 
-## 🚀 Quick Start
+## 🚀 Inicio Rápido
 
-### Installation
+### Instalación
 
 ```bash
-# Clone the repository
+# Clonar el repositorio
 git clone https://github.com/JhonHurtado/systemplus_ai_assistant.git
 cd systemplus_ai_assistant
 
-# Install dependencies
+# Instalar dependencias
 npm install
 
-# Set up environment variables
+# Configurar variables de entorno
 cp .env.example .env
-# Edit .env with your settings
+# Editar .env con tu configuración
 ```
 
-### Development
+### Desarrollo
 
 ```bash
-# Start development servers
+# Iniciar servidores de desarrollo
 npm run dev
 
-# Backend only
+# Solo backend
 npm run dev:backend
 
-# Widget only
+# Solo widget
 npm run dev:widget
 ```
 
-### Building for Production
+### Compilación para Producción
 
 ```bash
-# Build both backend and frontend
+# Compilar tanto backend como frontend
 npm run build
 
-# Run production server
+# Ejecutar servidor de producción
 npm start
 ```
 
-### Docker Deployment
+### Despliegue con Docker
 
 ```bash
-# Build the Docker image
+# Construir la imagen Docker
 docker build -t systemplus-assistant .
 
-# Run the container
+# Ejecutar el contenedor
 docker run -d -p 3000:3000 --env-file .env --name assistant systemplus-assistant
 ```
 
-## 💻 Integration
+## 💻 Integración
 
-Add the widget to any website using a simple script tag:
+Añade el widget a cualquier sitio web usando una simple etiqueta script:
 
 ```html
 <script 
@@ -124,108 +124,108 @@ Add the widget to any website using a simple script tag:
 </script>
 ```
 
-See the [example integration page](./example/index.html) for a working demo.
+Consulta la [página de ejemplo de integración](./example/index.html) para una demostración funcional.
 
-## ⚙️ Configuration Options
+## ⚙️ Opciones de Configuración
 
-| Option | Description | Default |
-|--------|-------------|---------|
-| `color` | Main color theme (hex code) | `#be3124` |
-| `title` | Widget title | `"Asistente System Plus"` |
-| `initialMessage` | First message from assistant | `"¡Hola! Soy el asistente..."` |
-| `theme` | Color theme | `"light"` (or `"dark"`) |
-| `avatarUrl` | URL to assistant avatar | Bot icon URL |
-| `apiBasePath` | Base URL for API endpoints | `"https://asistente.systemplus.systems"` |
-| `position` | Screen position | `"bottom-right"` |
-| `fontFamily` | Main font | `"Poppins, sans-serif"` |
-| `enableSound` | Enable notification sounds | `true` |
-| `suggestionsEnabled` | Show suggestions | `true` |
-| `size` | Widget size | `"medium"` (or `"small"`, `"large"`) |
-| `autoOpen` | Auto-open on page load | `false` |
+| Opción | Descripción | Valor Predeterminado |
+|--------|-------------|----------------------|
+| `color` | Color principal del tema (código hex) | `#be3124` |
+| `title` | Título del widget | `"Asistente System Plus"` |
+| `initialMessage` | Primer mensaje del asistente | `"¡Hola! Soy el asistente..."` |
+| `theme` | Tema de color | `"light"` (o `"dark"`) |
+| `avatarUrl` | URL del avatar del asistente | URL del icono del bot |
+| `apiBasePath` | URL base para endpoints API | `"https://asistente.systemplus.systems"` |
+| `position` | Posición en la pantalla | `"bottom-right"` |
+| `fontFamily` | Fuente principal | `"Poppins, sans-serif"` |
+| `enableSound` | Habilitar sonidos de notificación | `true` |
+| `suggestionsEnabled` | Mostrar sugerencias | `true` |
+| `size` | Tamaño del widget | `"medium"` (o `"small"`, `"large"`) |
+| `autoOpen` | Apertura automática al cargar | `false` |
 
-## 📚 Documentation
+## 📚 Documentación
 
-Comprehensive documentation is available in the `/docs` directory:
+La documentación completa está disponible en el directorio `/docs`:
 
-- [Installation Guide](./docs/INSTALLATION.md) - Detailed setup and deployment instructions
-- [API Documentation](./docs/API.md) - API endpoints reference
-- [User Guide](./docs/USER_GUIDE.md) - Guide for end users
-- [Contributing Guidelines](./docs/CONTRIBUTING.md) - How to contribute to the project
+- [Guía de Instalación](./docs/INSTALLATION.md) - Instrucciones detalladas de configuración y despliegue
+- [Documentación API](./docs/API.md) - Referencia de endpoints API
+- [Guía de Usuario](./docs/USER_GUIDE.md) - Guía para usuarios finales
+- [Lineamientos de Contribución](./docs/CONTRIBUTING.md) - Cómo contribuir al proyecto
 
-## 📂 Project Structure
+## 📂 Estructura del Proyecto
 
 ```
 /src
   /backend
     /services
-      contextEngine.ts    # Contextual reasoning engine
+      contextEngine.ts    # Motor de razonamiento contextual
     /middleware
-      auth.ts             # API authentication middleware
+      auth.ts             # Middleware de autenticación API
     /config
-      constants.ts        # Configuration and constants
-    server.ts             # Express server
+      constants.ts        # Configuraciones y constantes
+    server.ts             # Servidor Express
   
   /frontend
     /components
-      chatInterface.ts    # Chat UI interface
-      messageItem.ts      # Individual message component
+      chatInterface.ts    # Interfaz de chat UI
+      messageItem.ts      # Componente de mensaje individual
     /utils
-      domHelpers.ts       # DOM utility functions
-    widget.ts             # Widget entry point
+      domHelpers.ts       # Funciones de utilidad DOM
+    widget.ts             # Punto de entrada del widget
   
-/dist                     # Compiled files
+/dist                     # Archivos compilados
 /data
-  context.json            # Initial context example
+  context.json            # Ejemplo inicial de contexto
   
-/docs                     # Documentation
-/configs                  # Configuration files for deployment
-/scripts                  # Build and deployment scripts
-/example                  # Example integration
-/.github                  # GitHub workflows and templates
+/docs                     # Documentación
+/configs                  # Archivos de configuración para despliegue
+/scripts                  # Scripts de compilación y despliegue
+/example                  # Integración de ejemplo
+/.github                  # Workflows y plantillas de GitHub
   
-tsconfig.json             # TypeScript configuration
-webpack.config.js         # Webpack configuration
-package.json              # Dependencies and scripts
-.env.example              # Environment variables example
+tsconfig.json             # Configuración de TypeScript
+webpack.config.js         # Configuración de Webpack
+package.json              # Dependencias y scripts
+.env.example              # Ejemplo de variables de entorno
 ```
 
-## 🔄 Updating Context
+## 🔄 Actualización del Contexto
 
-Use the protected API endpoint to update the assistant's knowledge base:
+Utiliza el endpoint API protegido para actualizar la base de conocimiento del asistente:
 
 ```bash
 curl -X PUT https://asistente.systemplus.systems/api/admin/context \
-  -H "Authorization: Bearer YOUR_ADMIN_TOKEN" \
+  -H "Authorization: Bearer TU_TOKEN_ADMIN" \
   -H "Content-Type: application/json" \
-  -d @new_context.json
+  -d @nuevo_contexto.json
 ```
 
-See the [API Documentation](./docs/API.md) for more details.
+Consulta la [Documentación API](./docs/API.md) para más detalles.
 
-## 🔒 Security Features
+## 🔒 Características de Seguridad
 
-- **CORS Protection**: Configured for specific domains
-- **JWT Authentication**: For admin endpoints
-- **HTTP Headers**: Secured with Helmet
-- **Rate Limiting**: Prevents abuse by limiting requests per IP
-- **Input Sanitization**: All user inputs are validated and sanitized
+- **Protección CORS**: Configurado para dominios específicos
+- **Autenticación JWT**: Para endpoints administrativos
+- **Encabezados HTTP**: Asegurados con Helmet
+- **Limitación de Tasa**: Previene abusos limitando solicitudes por IP
+- **Sanitización de Entrada**: Todas las entradas de usuario son validadas y sanitizadas
 
-## 🤝 Contributing
+## 🤝 Contribuciones
 
-Contributions are welcome! Please see our [Contributing Guidelines](./docs/CONTRIBUTING.md) for more details.
+¡Las contribuciones son bienvenidas! Por favor, consulta nuestros [Lineamientos de Contribución](./docs/CONTRIBUTING.md) para más detalles.
 
-## 📄 License
+## 📄 Licencia
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Este proyecto está licenciado bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
 
-## 👥 Support
+## 👥 Soporte
 
-For questions or assistance, please contact:
+Para preguntas o asistencia, por favor contacta:
 - Email: info@systemplus.edu.co
-- Website: [SystemPlus](https://systemplus.systems)
+- Sitio web: [SystemPlus](https://systemplus.systems)
 
 ---
 
 <p align="center">
-  Made with ❤️ by <a href="https://systemplus.systems">SystemPlus</a>
+  Hecho con ❤️ por <a href="https://systemplus.systems">SystemPlus</a>
 </p>
