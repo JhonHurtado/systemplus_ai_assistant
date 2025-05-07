@@ -1,0 +1,25 @@
+{
+  "institucion": "System Plus Popayán",
+  "tipo": "Institución de Educación para el Trabajo y el Desarrollo Humano",
+  "fecha_fundacion": "1994-08-23",
+  "ciudad": "Popayán",
+  "departamento": "Cauca",
+  "pais": "Colombia",
+  "descripcion": "System Plus Popayán es una institución educativa enfocada en programas técnicos y tecnológicos. Fundada en 1994, contamos con más de 25 años de experiencia formando profesionales competentes.",
+  "sede_principal": {
+    "direccion": "Calle 5 # 5-59, Popayán, Cauca",
+    "telefono": "(602) 823-1234",
+    "correo": "info@systemplus.edu.co",
+    "horario": "Lunes a viernes: 8:00am - 6:00pm | Sábados: 8:00am - 12:00pm"
+  },
+  "programas": [
+    "Técnico en Sistemas",
+    "Técnico en Contabilidad",
+    "Técnico en Diseño Gráfico",
+    "Inglés",
+    "Soporte Técnico"
+  ],
+  "modalidades": ["Presencial", "Virtual", "Mixta"],
+  "mision": "Formar personas competentes en el ámbito técnico y tecnológico, comprometidas con el desarrollo personal y social.",
+  "vision": "Ser líderes en formación técnica en el suroccidente colombiano, reconocidos por nuestra calidad académica."
+}
