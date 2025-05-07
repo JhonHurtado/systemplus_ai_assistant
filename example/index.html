@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SystemPlus AI Assistant - Ejemplo de Integración</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      background-color: #be3124;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    
+    .content {
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
+    
+    h2 {
+      color: #be3124;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 10px;
+      margin-top: 0;
+    }
+    
+    .code-block {
+      background-color: #f8f8f8;
+      padding: 20px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: monospace;
+      margin: 20px 0;
+    }
+    
+    .controls {
+      margin-top: 30px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    
+    button {
+      background-color: #be3124;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #9c2a1e;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #666;
+      font-size: 0.9rem;
+    }
+    
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
+      .content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SystemPlus AI Assistant</h1>
+  </header>
+  
+  <div class="container">
+    <div class="content">
+      <h2>Ejemplo de Integración</h2>
+      <p>Esta página demuestra cómo integrar el asistente virtual de SystemPlus en cualquier sitio web. El widget se carga mediante un simple script tag con opciones de configuración personalizables.</p>
+      
+      <h3>Código de Integración</h3>
+      <p>Agregue el siguiente código en el archivo HTML de su sitio:</p>
+      
+      <div class="code-block">
+        <code>
+&lt;script 
+  id="systemplus-widget-script"
+  src="https://asistente.systemplus.systems/dist/widget.min.js"
+  data-config='{
+    "color": "#be3124",
+    "title": "Asistente System Plus",
+    "initialMessage": "¡Hola! Soy el asistente virtual de System Plus. ¿En qué puedo ayudarte?",
+    "theme": "light",
+    "avatarUrl": "https://systemplus.systems/images/svg/icon_bot.svg",
+    "apiBasePath": "https://asistente.systemplus.systems",
+    "position": "bottom-right",
+    "fontFamily": "Poppins, sans-serif",
+    "enableSound": true,
+    "suggestionsEnabled": true,
+    "size": "medium",
+    "autoOpen": false
+  }' 
+  async&gt;
+&lt;/script&gt;
+        </code>
+      </div>
+      
+      <h3>Opciones de Personalización</h3>
+      <p>El widget se puede personalizar modificando el objeto JSON en el atributo <code>data-config</code>. Estas son algunas opciones disponibles:</p>
+      
+      <ul>
+        <li><strong>color:</strong> Color principal del widget (código hexadecimal)</li>
+        <li><strong>title:</strong> Título del widget</li>
+        <li><strong>theme:</strong> Tema - "light" o "dark"</li>
+        <li><strong>position:</strong> Posición - "bottom-right", "bottom-left", "top-right" o "top-left"</li>
+        <li><strong>size:</strong> Tamaño - "small", "medium" o "large"</li>
+      </ul>
+      
+      <h3>Control Programático</h3>
+      <p>También puede controlar el widget programáticamente utilizando JavaScript:</p>
+      
+      <div class="controls">
+        <button onclick="SystemPlusWidget.open()">Abrir Chat</button>
+        <button onclick="SystemPlusWidget.close()">Cerrar Chat</button>
+        <button onclick="SystemPlusWidget.toggle()">Alternar Chat</button>
+        <button onclick="SystemPlusWidget.sendMessage('¿Qué programas ofrecen?')">Enviar Mensaje</button>
+      </div>
+    </div>
+    
+    <footer>
+      <p>&copy; 2025 System Plus. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+  
+  <!-- Integración del widget de SystemPlus -->
+  <script 
+    id="systemplus-widget-script"
+    src="../dist/widget.min.js"
+    data-config='{
+      "color": "#be3124",
+      "title": "Asistente System Plus",
+      "initialMessage": "¡Hola! Soy el asistente virtual de System Plus. ¿En qué puedo ayudarte?",
+      "theme": "light",
+      "avatarUrl": "https://systemplus.systems/images/svg/icon_bot.svg",
+      "apiBasePath": "http://localhost:3000",
+      "position": "bottom-right",
+      "fontFamily": "Poppins, sans-serif",
+      "enableSound": true,
+      "suggestionsEnabled": true,
+      "size": "medium",
+      "autoOpen": false
+    }' 
+    async>
+  </script>
+</body>
+</html>
